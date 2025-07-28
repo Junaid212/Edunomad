@@ -98,13 +98,15 @@ function UserTypes({ isDarkMode }) {
 </Link> */}
 <button
                 onClick={() => {
-                  if (userType.id === 'institutes') {
-                    navigate('/institute-register');
+                  if (userType.id === 'teachers') {
+                    navigate('/teacherreg');
                   } else if (userType.id === 'parents'){
                     navigate('/parent-register');
+                  }else if (userType.id === 'tutors'){
+                    navigate('/online-tutor');
                   } else {
-                    navigate('/teacherReg');
-                  }
+                    navigate('/institute-register');
+                  } 
                 }}
                 className={`w-full flex justify-center items-center space-x-2 py-3 rounded-lg font-medium text-white
                   bg-gradient-to-r ${userType.color} ${userType.hoverColor} hover:scale-105 transform`}

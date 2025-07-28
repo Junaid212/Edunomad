@@ -21,6 +21,11 @@ import SignIn from './Component/SignIn';
 import MainPage from './Component/MainPage';
 import HomeCombined from './Component/HomeCombined';
 import JobList from './Component/JobList';
+import OnlineTutorReg from './Component/OnlineTutorReg';
+import ParentRequest from './Component/ParentRequest';
+import JobApplications from './Component/JobApplications';
+import InstituteDashboard from './Component/InstituteDashBoard';
+import AddJobVacancy from './Component/AddJobVacancy';
 
 
 
@@ -170,6 +175,10 @@ function App() {
     path="/teacherReg"
     element={<TeacherRegistration isDarkMode={isDarkMode} />}
   />
+       <Route
+    path="/online-tutor"
+    element={<OnlineTutorReg isDarkMode={isDarkMode} />}
+  />
   <Route path="/institute-register" element={<InstituteRegistration isDarkMode={isDarkMode} />} />
   <Route path="/parent-register" element={<ParentRegistration isDarkMode={isDarkMode}
             toggleDarkMode={() => setIsDarkMode((prev) => !prev)}
@@ -200,6 +209,12 @@ function App() {
             isMobileMenuOpen={isMobileMenuOpen}
             toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)} />}
         />
+            <Route
+          path="/parent-request"
+          element={<ParentRequest isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)} />}
+        />
         <Route
           path="/contact-us"
           element={
@@ -224,6 +239,18 @@ function App() {
             isMobileMenuOpen={isMobileMenuOpen}
             toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)}
             />}/>
+            <Route
+    path="/job-application"
+    element={<JobApplications isDarkMode={isDarkMode} />}
+  />
+            <Route
+    path="/institute-dash"
+    element={<InstituteDashboard isDarkMode={isDarkMode} />}
+  />
+            <Route
+    path="/add-job-vacancy"
+    element={<AddJobVacancy isDarkMode={isDarkMode} />}
+  />
         
   {/* <Route path="/educator-list" element={<EducatorsList isDarkMode={isDarkMode} sampleEducators={sampleEducators} />}
         /> */}

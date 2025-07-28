@@ -56,20 +56,20 @@ function App() {
     <div className="min-h-screen bg-gray-50">
         <Header/>
       <JobHeader />
-      <Stats/>
+      
       
       {/* Job Listings */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="mb-12">
+      <div className="container mx-auto  p-20">
+        {/* <div className="mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
             Latest Job Openings
           </h2>
           <p className="text-gray-600 text-center max-w-2xl mx-auto">
             Explore our curated list of teaching positions from top schools across India
           </p>
-        </div>
+        </div> */}
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-8  m-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8  m-10">
           {jobListings.map((job) => (
             <JobPostCard key={job.id} {...job} />
           ))}

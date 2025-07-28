@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 export default function Header({ isDarkMode, toggleDarkMode }) {
   const navItems = [
     { label: 'Find Educators', icon: <Search className="w-4 h-4" />, to: '/educators' },
-    { label: 'Jobs', icon: <Briefcase className="w-4 h-4" />, to: '/applicant' },
+    { label: 'Jobs', icon: <Briefcase className="w-4 h-4" />, to: '/job-List' },
     { label: 'About', icon: <Info className="w-4 h-4" />, to: '/about' },
     { label: 'Contact', icon: <MessageSquare className="w-4 h-4" />, to: '/contact-us' },
-    { label: "Parents' Requests", icon: <FileText className="w-4 h-4" />, to: '/parent-register' },
+    { label: "Parents' Requests", icon: <FileText className="w-4 h-4" />, to: '/parent-request' },
   ];
 
   return (

@@ -21,18 +21,18 @@ export default function JobPostCard({
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-2">
             <h3 className="text-xl font-bold text-gray-900">{title}</h3>
-            {isLive && (
+            {/* {isLive && (
               <span className="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full animate-pulse">
                 Live
               </span>
-            )}
+            )} */}
           </div>
           <p className="text-gray-600 font-medium mb-3">{school}</p>
         </div>
       </div>
 
       {/* Job Details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-2 mb-4">
         <div className="flex items-center gap-2 text-sm text-gray-600">
           <MapPin className="w-4 h-4 text-blue-500" />
           <span>{location}</span>
@@ -53,13 +53,13 @@ export default function JobPostCard({
 
       {/* Salary and Requirements */}
       <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 mb-4">
-        <div className="bg-blue-50 rounded-lg p-3">
+        {/* <div className="bg-blue-50 rounded-lg p-3">
           <div className="flex items-center gap-2 mb-1">
             <IndianRupee className="w-4 h-4 text-blue-600" />
             <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Salary</span>
           </div>
           <p className="text-sm font-bold text-gray-900">{salary}</p>
-        </div>
+        </div> */}
         
         <div className="bg-purple-50 rounded-lg p-3">
           <div className="flex items-center gap-2 mb-1">

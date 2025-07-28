@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
 import Footer from './Footer';
+import JobHeader from "./JobHeader";
 
 const applicants = [
   {
@@ -127,7 +128,7 @@ export default function JobApplicantsPage({isDarkMode, toggleDarkMode, isMobileM
         toggleMobileMenu={toggleMobileMenu}
         onJoinNowClick={() => navigate('/register')}
       />
-    <div className="bg-gradient-to-b from-green-200 to-white min-h-screen pb-16">
+    {/* <div className="bg-gradient-to-b from-green-200 to-white min-h-screen pb-16">
       <header className="bg-gradient-to-r from-green-400 to-green-200 py-14 text-center">
         <h1 className="text-5xl font-bold text-white mb-2">Job Applicants</h1>
         <p className="text-white">Browse through qualified educators ready to join your team.</p>
@@ -159,8 +160,17 @@ export default function JobApplicantsPage({isDarkMode, toggleDarkMode, isMobileM
           ))}
         </div>
       </div>
-    </div>
+    </div> */}
+    <JobHeader/>
+    <div className="bg-white p-24 ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {applicants.map((app, i) => (
+            <ApplicantCard key={i} applicant={app} />
+          ))}
+        </div>
+        </div>
     <Footer isDarkMode={isDarkMode} />
+
     </div>
   );
 }
