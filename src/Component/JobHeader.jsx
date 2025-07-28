@@ -33,7 +33,7 @@ export default function JobHeader() {
                 />
               </div>
               <div className="flex gap-3">
-                <select className="px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent backdrop-blur-sm min-w-[140px]">
+                <select className="px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent backdrop-blur-sm min-w-[140px]">
                   <option value="">All Subjects</option>
                   <option value="mathematics">Mathematics</option>
                   <option value="science">Science</option>

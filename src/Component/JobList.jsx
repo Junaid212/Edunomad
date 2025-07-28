@@ -4,6 +4,7 @@ import JobHeader from './JobHeader';
 import Stats from './Stats';
 import JobPostCard from './JobPostCard';
 import Header from './Header';
+import Footer from './Footer';
 
 
 const jobListings = [
@@ -83,20 +84,7 @@ function App() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="bg-blue-600 rounded-full p-2">
-              <GraduationCap className="w-6 h-6" />
-            </div>
-            <span className="text-xl font-bold">TeachingJobs</span>
-          </div>
-          <p className="text-gray-400">
-            Connecting passionate educators with amazing opportunities
-          </p>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 }
