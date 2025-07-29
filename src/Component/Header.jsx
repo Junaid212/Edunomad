@@ -16,11 +16,11 @@ export default function Header({ isDarkMode, toggleDarkMode }) {
   return (
     <header className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-b sticky top-0 z-50`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center  w-12 justify-center">
-        <img src='images/eduno/edonoLogo.png'/>
-          {/* <div className="w-10 h-10 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 flex items-center justify-center">
-            <GraduationCap className="w-6 h-6 text-white" />
-          </div> */}
+        <Link to="/" className="flex items-center">
+        {/* <img src='images/eduno/edonoLogo.png'/> */}
+          <div className="w-20 h-10  flex items-center justify-center">
+            <img src='images/eduno/edonoLogo.png'/>
+          </div>
           <span className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">
             Edunomad Connect
           </span>

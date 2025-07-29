@@ -12,7 +12,7 @@ function HeroSection() {
   {/* Content */}
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center flex flex-col justify-center h-full">
     <div className="mb-0">
-      <div className="inline-flex items-center justify-center w-28 h-28 mb-2 rounded-full mt-10">
+      <div className="inline-flex items-center justify-center w-36 h-36 mb-2 rounded-full mt-5">
         <img src='images/eduno/edonoLogo.png'/>
       </div>
       <h1 className="text-4xl sm:text-5xl font-bold text-white mb-1">Edunomad Connect</h1>

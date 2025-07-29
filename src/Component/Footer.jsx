@@ -7,8 +7,8 @@ export default function Footer({ isDarkMode }) {
     <footer className={`${isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-t`}>
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full flex items-center justify-center">
-            <GraduationCap className="w-6 h-6 text-white" />
+          <div className="w-20 h-20  flex items-center justify-center">
+            <img src='images/eduno/edonoLogo.png'/>
           </div>
           <span className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Edunomad Connect</span>
         </div>
