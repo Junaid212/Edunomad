@@ -26,6 +26,7 @@ import ParentRequest from './Component/ParentRequest';
 import JobApplications from './Component/JobApplications';
 import InstituteDashboard from './Component/InstituteDashBoard';
 import AddJobVacancy from './Component/AddJobVacancy';
+import ApplicantsPage from './Component/ApplicantsPage';
 
 
 
@@ -159,7 +160,9 @@ function App() {
     <BrowserRouter>
     <Routes>
       {/* <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} /> */}
-      <Route path="/" element={<MainPage/>}/>
+      <Route path="/" element={<HomeCombined isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)} />}/>
       <Route
         path="/register"
         element={
@@ -173,8 +176,9 @@ function App() {
       <Route path='/combined' element={<HomeCombined/>}/>
        <Route
     path="/teacherReg"
-    element={<TeacherRegistration isDarkMode={isDarkMode} />}
-  />
+    element={<TeacherRegistration isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)} />}/>
        <Route
     path="/online-tutor"
     element={<OnlineTutorReg isDarkMode={isDarkMode} />}
@@ -241,15 +245,26 @@ function App() {
             />}/>
             <Route
     path="/job-application"
-    element={<JobApplications isDarkMode={isDarkMode} />}
+    element={<JobApplications isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)} />}
   />
             <Route
     path="/institute-dash"
-    element={<InstituteDashboard isDarkMode={isDarkMode} />}
+    element={<InstituteDashboard isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)} />}
   />
             <Route
     path="/add-job-vacancy"
-    element={<AddJobVacancy isDarkMode={isDarkMode} />}
+    element={<AddJobVacancy isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)} />}/>
+            <Route
+    path="/applicant-page"
+    element={<ApplicantsPage isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode((prev) => !prev)}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)} />}
   />
         
   {/* <Route path="/educator-list" element={<EducatorsList isDarkMode={isDarkMode} sampleEducators={sampleEducators} />}

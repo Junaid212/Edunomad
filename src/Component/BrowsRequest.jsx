@@ -37,7 +37,8 @@ const mockRequests = [
     grade: 'Class 12',
     location: 'Bangalore, Koramangala',
     mode: 'Online',
-    timing: ['Chemistry', 'Biology'],
+    timing: 'Weekdays 6-8 PM',
+    subjects: ['Chemistry', 'Biology'],
     notes: 'Urgent help needed for competitive exam preparation. Student is preparing for NEET.',
     curriculum: 'IB',
     postedDate: '3 hours ago',
@@ -104,14 +105,14 @@ const BrowseRequests = () => {
   return (
     <div className="space-y-6">
       {/* Search and Filter Section */}
-      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+      <div className="bg-white rounded-sm shadow-lg  overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-4">
+        <div className="bg-white px-6 py-4">
           <div className="flex items-center">
-            <Filter className="w-6 h-6 text-white mr-3" />
+            <Filter className="w-6 h-6 text-black mr-3" />
             <div>
-              <h2 className="text-xl font-bold text-white">Filter & Search Requests</h2>
-              <p className="text-indigo-100 text-sm mt-1">Find the perfect tutoring opportunity</p>
+              <h2 className="text-xl font-bold text-black">Filter & Search Requests</h2>
+              <p className="text-black text-sm mt-1">Find the perfect tutoring opportunity</p>
             </div>
           </div>
         </div>
@@ -126,7 +127,7 @@ const BrowseRequests = () => {
                 placeholder="Search by subject, location, or notes..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
               />
             </div>
           </div>
@@ -141,7 +142,7 @@ const BrowseRequests = () => {
                 id="subject"
                 value={filters.subject}
                 onChange={(e) => handleFilterChange('subject', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-gray-50 hover:bg-white transition-all duration-200"
+                className="w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-gray-50 hover:bg-white transition-all duration-200"
               >
                 <option value="All Subjects">All Subjects</option>
                 <option value="Mathematics">Mathematics</option>
@@ -248,9 +249,9 @@ const BrowseRequests = () => {
             <div className="p-6 border-b border-gray-100">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
+                  {/* <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center">
                     <span className="text-white font-bold text-lg">{request.id.slice(-2)}</span>
-                  </div>
+                  </div> */}
                   <div>
                     <h3 className="font-bold text-gray-900 text-lg">{request.id}</h3>
                     <div className="flex items-center text-sm text-gray-600 mt-1">
@@ -263,9 +264,9 @@ const BrowseRequests = () => {
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getCurriculumColor(request.curriculum)}`}>
                     {request.curriculum}
                   </span>
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getUrgencyColor(request.urgency)}`}>
+                  {/* <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getUrgencyColor(request.urgency)}`}>
                     {request.urgency} Priority
-                  </span>
+                  </span> */}
                 </div>
               </div>
 
@@ -339,7 +340,7 @@ const BrowseRequests = () => {
 
       {/* Load More */}
       <div className="text-center pt-8">
-        <button className="px-8 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-indigo-300 hover:text-indigo-600 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        <button className="px-8 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-md font-semibold hover:border-indigo-300 hover:text-indigo-600 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
           Load More Requests
         </button>
       </div>

@@ -4,28 +4,36 @@ import SubmitRequest from './SubmitRequest';
 import BrowseRequests from './BrowsRequest';
 import Header from './Header';
 import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
 
-export default function ParentRequest() {
+export default function ParentRequest({ isDarkMode,toggleDarkMode, isMobileMenuOpen, toggleMobileMenu }) {
+  const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('submit');
+  
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      {/* Header Section */}
-      <Header/>
+    <div className={isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}>
+          <Header
+            isDarkMode={isDarkMode}
+            toggleDarkMode={toggleDarkMode}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+            onJoinNowClick={() => navigate('/register')}
+          />
       <div className="bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-8">
             {/* Logo and Title */}
             <div className="flex items-center justify-center mb-6">
               <div className="flex items-center space-x-3">
-                <div className="p-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg">
+                {/* <div className="p-3 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg">
                   <GraduationCap className="w-8 h-8 text-white" />
-                </div>
+                </div> */}
                 <div>
-                  <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                    TutorConnect
+                  <h1 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                    Parents' Request
                   </h1>
-                  <p className="text-sm text-gray-500 font-medium">Parents' Request Platform</p>
+                  {/* <p className="text-sm text-gray-500 font-medium">Parents' Request Platform</p> */}
                 </div>
               </div>
             </div>
@@ -67,16 +75,16 @@ export default function ParentRequest() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Navigation Tabs */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-2 mb-8">
+        <div className="bg-green-100 rounded-md shadow-sm  p-1 mb-8">
           <div className="flex">
             <button
               onClick={() => setActiveTab('submit')}
-              className={`flex-1 flex items-center justify-center py-4 px-6 text-center font-semibold rounded-xl transition-all duration-200 ${
+              className={`flex-1 flex items-center justify-center  px-2 text-center font-semibold rounded-md transition-all duration-200 ${
                 activeTab === 'submit'
-                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg transform scale-[1.02]'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  ? 'bg-white text-black shadow-lg transform scale-[1.02]'
+                  : 'text-gray-600 hover:text-gray-900 '
               }`}
             >
               <Users className="w-5 h-5 mr-2" />
@@ -84,10 +92,10 @@ export default function ParentRequest() {
             </button>
             <button
               onClick={() => setActiveTab('browse')}
-              className={`flex-1 flex items-center justify-center py-4 px-6 text-center font-semibold rounded-xl transition-all duration-200 ${
+              className={`flex-1 flex items-center justify-center py-2 px-6 text-center font-semibold rounded-md transition-all duration-200 ${
                 activeTab === 'browse'
-                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg transform scale-[1.02]'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                  ? 'bg-white text-black shadow-lg transform scale-[1.02]'
+                  : 'text-gray-600 hover:text-gray-900 '
               }`}
             >
               <GraduationCap className="w-5 h-5 mr-2" />
@@ -99,7 +107,7 @@ export default function ParentRequest() {
         {/* Content */}
         {activeTab === 'submit' ? <SubmitRequest /> : <BrowseRequests />}
       </div>
-      <Footer/>
+      <Footer isDarkMode={isDarkMode} />
     </div>
   );
 }

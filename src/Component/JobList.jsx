@@ -5,6 +5,7 @@ import Stats from './Stats';
 import JobPostCard from './JobPostCard';
 import Header from './Header';
 import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
 
 
 const jobListings = [
@@ -52,15 +53,22 @@ const jobListings = [
   }
 ];
 
-function App() {
+function App({ isDarkMode,toggleDarkMode, isMobileMenuOpen, toggleMobileMenu }) {
+  const navigate = useNavigate()
   return (
-    <div className="min-h-screen bg-gray-50">
-        <Header/>
+   <div className={isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}>
+          <Header
+            isDarkMode={isDarkMode}
+            toggleDarkMode={toggleDarkMode}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+            onJoinNowClick={() => navigate('/register')}
+          />
       <JobHeader />
       
       
       {/* Job Listings */}
-      <div className="container mx-auto  p-20">
+      <div className="container mx-auto  p-20 ">
         {/* <div className="mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
             Latest Job Openings
@@ -70,7 +78,7 @@ function App() {
           </p>
         </div> */}
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8  m-10">
+        <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3  gap-8  m-10 ">
           {jobListings.map((job) => (
             <JobPostCard key={job.id} {...job} />
           ))}
@@ -78,13 +86,13 @@ function App() {
 
         {/* Load More Button */}
         <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-white border-2 border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-200 transform hover:scale-105">
+          <button className="px-8 py-3 bg-white border-2 border-[#DAD024] text-[#DAD024] font-semibold rounded-xl hover:bg-[#DAD024] hover:text-white transition-all duration-200 transform hover:scale-105">
             Load More Jobs
           </button>
         </div>
       </div>
 
-      <Footer/>
+      <Footer isDarkMode={isDarkMode} />
     </div>
   );
 }

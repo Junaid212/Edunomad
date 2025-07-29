@@ -3,7 +3,7 @@ import { GraduationCap, Search, Filter } from 'lucide-react';
 
 export default function JobHeader() {
   return (
-    <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white">
+    <div className="bg-gradient-to-br from-[#00E5D5] via-[#DAD024] to-[#FFAF85]  text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Main Header */}
         <div className="text-center mb-8">
@@ -40,7 +40,7 @@ export default function JobHeader() {
                   <option value="english">English</option>
                   <option value="history">History</option>
                 </select>
-                <button className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors duration-200 flex items-center gap-2">
+                <button className="px-6 py-3 bg-[#00E5D5] hover:bg-[#00E5D5] text-white font-semibold rounded-xl transition-colors duration-200 flex items-center gap-2">
                   <Filter className="w-4 h-4" />
                   Filter
                 </button>

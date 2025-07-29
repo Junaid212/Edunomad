@@ -10,7 +10,7 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
   const sampleEducators = [
   {
     id: 1,
-    image: 'https://example.com/images/michael-chen.jpg',
+    image: 'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=300&h=300&fit=crop&crop=face',
     name: 'Sarah Johnson',
     rating: 4.8,
     qualifications: 'M.Sc. Physics, B.Ed',
@@ -19,7 +19,7 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
   },
   {
     id: 2,
-    image: 'https://example.com/images/michael-chen.jpg',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
     name: 'Michael Chen',
     rating: 4.9,
     qualifications: 'Ph.D. Chemistry',
@@ -28,7 +28,7 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
   },
   {
     id: 3,
-    image: 'https://example.com/images/michael-chen.jpg',
+    image: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
     name: 'Ayesha Patel',
     rating: 4.7,
     qualifications: 'M.A. English Literature, B.Ed',
@@ -37,7 +37,7 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
   },
   {
     id: 4,
-    image: 'https://example.com/images/michael-chen.jpg',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
     name: 'David Martinez',
     rating: 4.6,
     qualifications: 'B.Tech Computer Science',
@@ -46,7 +46,7 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
   },
   {
     id: 5,
-    image: 'https://example.com/images/michael-chen.jpg',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face',
     name: 'Emily Nguyen',
     rating: 4.85,
     qualifications: 'M.Sc. Biology, M.Ed',
@@ -55,7 +55,7 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
   },
   {
     id: 6,
-    image: 'https://example.com/images/michael-chen.jpg',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&crop=face',
     name: 'Ravi Mehra',
     rating: 4.75,
     qualifications: 'Ph.D. Mathematics',
@@ -73,20 +73,21 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
             toggleMobileMenu={toggleMobileMenu}
             onJoinNowClick={() => navigate('/register')}
           />
-    <section className="py-12 px-4 sm:px-6 lg:px-8">
+    <section >
         
-      <div className="max-w-7xl mx-auto">
+      
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+        <div className="text-center  w-full p-20  text-white bg-gradient-to-br from-[#00E5D5] via-[#DAD024] to-[#FFAF85] opacity-90">
+          <h1 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-white'}`}>
             Find Your Perfect Educator
           </h1>
-          <p className={`mt-2 text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          <p className={`mt-2 text-xl ${isDarkMode ? 'text-white' : 'text-white'}`}>
             Browse through our network of verified teachers and tutors
           </p>
         </div>
-
+      
         {/* Search & Filters */}
+        <div className="max-w-7xl mx-auto p-10">
         <div className="flex flex-col md:flex-row items-center justify-between mb-8 space-y-4 md:space-y-0">
           <input
             type="text"
@@ -125,19 +126,19 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
               <option>Austin, TX</option>
             </select>
             <button
-              className="px-4 py-3 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition"
+              className="px-4 py-3 bg-[#00E5D5] text-white rounded-lg hover:bg-[#00E5D5] transition"
             >
               Filter
             </button>
           </div>
         </div>
-
+              <h1 className='text-3xl p-3'><b>Available Educators </b></h1>
         {/* Educator Cards */}
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {sampleEducators.map((ed) => (
             <div
               key={ed.id}
-              className={`p-6 rounded-2xl shadow-lg border ${
+              className={`p-6 rounded-md shadow-lg border ${
                 isDarkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'
               }`}
             >
@@ -146,7 +147,7 @@ export default function EducatorsList({ isDarkMode, toggleDarkMode, isMobileMenu
                 <img
                     src={ed.image}
                     alt={ed.name}
-                    className="w-36 h-36 object-cover rounded-full mb-4 mx-auto  "
+                    className="w-24 h-24 object-cover rounded-full mb-3 mx-auto  "
                 />
                 )}
 

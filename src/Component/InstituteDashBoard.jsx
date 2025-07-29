@@ -14,8 +14,10 @@ import {
   ChevronRight,
   UserCheck
 } from 'lucide-react';
+import Header from './Header';
+import Footer from './Footer';
 
-export default function InstituteDashboard() {
+export default function InstituteDashboard({ isDarkMode,toggleDarkMode, isMobileMenuOpen, toggleMobileMenu }) {
   const navigate = useNavigate();
   const [instituteData, setInstituteData] = useState(null);
 
@@ -39,16 +41,24 @@ export default function InstituteDashboard() {
   }
 
   const handleAddJobVacancy = () => navigate('/add-job-vacancy');
-  const handleViewApplications = () => navigate('/job-applications');
+  const handleApplicantCard = () => navigate('/applicant-page');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 py-8 px-4">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <div className={isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}>
+          <Header
+            isDarkMode={isDarkMode}
+            toggleDarkMode={toggleDarkMode}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+            onJoinNowClick={() => navigate('/register')}
+          />
+    
+      <div className="max-w-6xl mx-auto space-y-8 mb-10 ">
         {/* Header */}
         <div className="text-center">
           <div className="flex items-center justify-center mb-4">
-            <Building2 className="h-10 w-10 text-blue-600 mr-3" />
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <Building2 className="h-10 w-10 text-[#00E5D5] mr-3" />
+            <h1 className="text-3xl font-bold bg-[#00E5D5] bg-clip-text text-transparent">
               Institute Dashboard
             </h1>
           </div>
@@ -109,13 +119,13 @@ export default function InstituteDashboard() {
               </div>
               {instituteData.websiteUrl && (
                 <div className="flex items-center text-sm">
-                  <Globe className="h-4 w-4 text-blue-600 mr-2" />
+                  <Globe className="h-4 w-4 text-[#00E5D5] mr-2" />
                   <strong>Website:</strong>
                   <a
                     href={instituteData.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-2 text-blue-600 hover:underline"
+                    className="ml-2 text-[#00E5D5] hover:underline"
                   >
                     Visit Site
                   </a>
@@ -151,7 +161,7 @@ export default function InstituteDashboard() {
           >
             <div className="flex items-center mb-4">
               <div className="p-3 bg-blue-100 rounded-lg mr-4">
-                <Plus className="h-6 w-6 text-blue-600" />
+                <Plus className="h-6 w-6 text-[#00E5D5]" />
               </div>
               <h4 className="text-xl font-semibold">Add Job Vacancy</h4>
               <ChevronRight className="ml-auto h-5 w-5 text-gray-400" />
@@ -159,19 +169,19 @@ export default function InstituteDashboard() {
             <p className="text-sm text-gray-600 mb-4">
               Post new job opportunities for students and alumni
             </p>
-            <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-              <Plus className="h-4 w-4 mr-2" />
+            <button className="w-full rounded-lg bg-[#DAD024] text-white p-2">
+              
               Create Job Posting
             </button>
           </div>
 
           <div
-            onClick={handleViewApplications}
+            onClick={handleApplicantCard}
             className="bg-white shadow-lg rounded-lg p-6 cursor-pointer hover:shadow-xl transition"
           >
             <div className="flex items-center mb-4">
               <div className="p-3 bg-indigo-100 rounded-lg mr-4">
-                <Eye className="h-6 w-6 text-indigo-600" />
+                <Eye className="h-6 w-6 text-[#00E5D5]" />
               </div>
               <h4 className="text-xl font-semibold">View Applications</h4>
               <ChevronRight className="ml-auto h-5 w-5 text-gray-400" />
@@ -179,8 +189,8 @@ export default function InstituteDashboard() {
             <p className="text-sm text-gray-600 mb-4">
               Review and manage job applications from candidates
             </p>
-            <button variant="outline" className="w-full border-indigo-600 text-indigo-600">
-              <Eye className="h-4 w-4 mr-2" />
+            <button variant="outline" className="w-full border-[#00E5D5] text-[#00E5D5]">
+              
               View All Applications
             </button>
           </div>
@@ -202,6 +212,8 @@ export default function InstituteDashboard() {
           </div>
         </div>
       </div>
+      <Footer isDarkMode={isDarkMode} />
     </div>
+    
   );
 }

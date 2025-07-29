@@ -64,10 +64,10 @@ export default function AddJobVacancy() {
             onClick={() => navigate('/institute-dash')}
             className="flex items-center gap-2 text-gray-700 hover:text-gray-900 mr-4"
           >
-            <ArrowLeft /> Back to Dashboard
+            <ArrowLeft /> Back 
           </button>
-          <div>
-            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+          <div >
+            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-black">
               Add Job Vacancy
             </h1>
             <p className="text-gray-500">Create a new job posting for your institute</p>
@@ -90,7 +90,7 @@ export default function AddJobVacancy() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Basic Info */}
               <section className="space-y-4">
-                <h3 className="text-lg font-semibold text-blue-600">Basic Information</h3>
+                <h3 className="text-lg font-semibold text-[#D1D136]">Basic Information</h3>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div>
                     <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">
@@ -117,11 +117,11 @@ export default function AddJobVacancy() {
                       onChange={handleInputChange}
                       required
                       placeholder="e.g., Computer Science"
-                      className="mt-1 w-full border-gray-300 rounded-xl px-4 py-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      className="mt-1 w-full border-gray-300 rounded-xl px-4 py-2 focus:[#D1D136] focus:border-transparent bg-gray-50"
                     />
                   </div>
                   <div>
-                    <label htmlFor="jobType" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="jobType" className="block text-sm font-medium  text-gray-700">
                       Job Type *
                     </label>
                     <select
@@ -130,7 +130,7 @@ export default function AddJobVacancy() {
                       value={formData.jobType}
                       onChange={handleInputChange}
                       required
-                      className="mt-1 w-full border-gray-300 rounded-xl px-4 py-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                      className="mt-1 w-full border-gray-300 rounded-xl px-4 py-2 focus:ring-[#DAD024] focus:border-transparent bg-gray-50"
                     >
                       <option value="">Select job type</option>
                       <option value="full-time">Full Time</option>
@@ -193,7 +193,7 @@ export default function AddJobVacancy() {
 
               {/* Location & Work Mode */}
               <section className="space-y-4">
-                <h3 className="flex items-center gap-2 text-lg font-semibold text-blue-600">
+                <h3 className="flex items-center gap-2 text-lg font-semibold text-[#DAD024]">
                   <MapPin /> Location & Work Mode
                 </h3>
                 <div className="grid gap-4 md:grid-cols-2">
@@ -234,7 +234,7 @@ export default function AddJobVacancy() {
 
               {/* Salary */}
               <section className="space-y-4">
-                <h3 className="flex items-center gap-2 text-lg font-semibold text-blue-600">
+                <h3 className="flex items-center gap-2 text-lg font-semibold text-[#DAD024]">
                   <DollarSign /> Salary Information
                 </h3>
                 <div className="grid gap-4 md:grid-cols-3">
@@ -287,7 +287,7 @@ export default function AddJobVacancy() {
 
               {/* Descriptions */}
               <section className="space-y-4">
-                <h3 className="text-lg font-semibold text-blue-600">Job Description</h3>
+                <h3 className="text-lg font-semibold text-[#DAD024]">Job Description</h3>
                 <div className="space-y-4">
                   <div>
                     <label htmlFor="jobDescription" className="block text-sm font-medium text-gray-700">

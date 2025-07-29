@@ -56,14 +56,14 @@ function UserTypes({ isDarkMode }) {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className={`text-4xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
             Choose Your Path
           </h2>
           <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
             Whether you're an educator, student, or institution, we have the perfect solution for you
           </p>
-        </div>
+        </div> */}
 
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {userTypes?.map((userType, index) => (

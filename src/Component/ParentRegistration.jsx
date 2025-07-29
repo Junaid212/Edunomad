@@ -4,9 +4,12 @@ import { ArrowLeft, Users} from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 import Header2 from './Header2'
+import { toast } from 'react-toastify'
 
 export default function ParentRegistration({ isDarkMode ,toggleDarkMode, isMobileMenuOpen, toggleMobileMenu}) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+   const [submitting, setSubmitting] = useState(false);
+    const REDIRECT_DELAY = 3500;
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -28,16 +31,33 @@ export default function ParentRegistration({ isDarkMode ,toggleDarkMode, isMobil
     }))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match')
-      return
-    }
-    // TODO: API integration
-    console.log('Parent registration data:', formData)
-    navigate('/')
-  }
+   const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      if (formData.password !== formData.confirmPassword) {
+        toast.error('Passwords do not match');
+        return;
+      }
+  
+      setSubmitting(true);
+  
+      try {
+        await new Promise((r) => setTimeout(r, 1200));
+  
+        // Save to localStorage
+        localStorage.setItem('instituteData', JSON.stringify(formData));
+  
+        toast.success('Account created! Redirecting…', { autoClose: REDIRECT_DELAY });
+  
+        setTimeout(() => navigate('/parent-request', {
+          state: { welcome: true }
+        }), REDIRECT_DELAY);
+      } catch (err) {
+        toast.error('Registration failed — please try again');
+      } finally {
+        setSubmitting(false);
+      }
+    };
 
   return (
     <div className={isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}>

@@ -19,61 +19,59 @@ export default function AboutUs({ isDarkMode,toggleDarkMode, isMobileMenuOpen, t
     {/* <div className={`${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'} min-h-screen`}> */}
         
       {/* Hero */}
-      <section className="py-16 text-center px-4 max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4">
+      <section className="py-16 text-center px-4  mx-auto bg-gradient-to-r from-green-300 to-cyan-400 ">
+        <h1 className="text-4xl font-bold text-white mb-4">
           About Us
         </h1>
-        <p className="text-lg">
-          Connecting passionate educators with learning opportunities worldwide. We’re building the future of education, one connection at a time.
+        <p className="text-lg text-white">
+          Connecting passionate educators with learning opportunities worldwide. <br/>We’re building the future of education, one connection at a time.
         </p>
       </section>
       
       {/* Mission */}
-      {/* <section className={`p-12 ${
-    isDarkMode ? '' : 'bg-gradient-to-r from-green-300 to-cyan-400 '
-  }`}>
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-semibold mb-4 text-center">Our Mission</h2>
+      <section className='p-9'>
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-4 text-center">Our Mission</h2>
           <p className="text-center mb-8">
             At Edunomad Connect, we believe that quality education should be accessible to everyone, everywhere. Our platform bridges the gap between talented educators and institutions, parents, and students who need their expertise. Whether you’re a seasoned teacher, an innovative online tutor, a forward-thinking institute, or a parent seeking the best education for your child, we’re here to make those meaningful connections happen.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className={`p-6 rounded-lg text-center border-4 ${
-    isDarkMode ? 'border-white' : 'border-green-400 '
+            <div className={`p-6 rounded-lg text-center border-2 ${
+    isDarkMode ? 'border-white' : 'border-green-200 '
   }`}>
-              <Users className="mx-auto mb-4 w-8 h-8 text-emerald-500" />
+              <Users className="mx-auto mb-4 w-14 h-14 text-emerald-500 bg-emerald-100 rounded-full  p-3 inline-flex" />
               <h3 className="font-medium mb-2">Community</h3>
               <p>Building a global community of educators and learners who support each other’s growth.</p>
             </div>
-            <div className={`p-6 rounded-lg text-center border-4 ${
-    isDarkMode ? 'border-white' : 'border-green-400'
+            <div className={`p-6 rounded-lg text-center border-2 ${
+    isDarkMode ? 'border-white' : 'border-green-200'
   }`}>
-              <Medal className="mx-auto mb-4 w-8 h-8 text-yellow-500" />
+              <Medal className="mx-auto mb-4 w-14 h-14 text-yellow-500 bg-yellow-100 rounded-full  p-3 inline-flex" />
               <h3 className="font-medium mb-2">Excellence</h3>
               <p>Maintaining the highest standards in matching top educators with qualified professionals.</p>
             </div>
-            <div className={`p-6 rounded-lg text-center border-4 ${
-    isDarkMode ? 'border-white' : 'border-green-400 '
+            <div className={`p-6 rounded-lg text-center border-2 ${
+    isDarkMode ? 'border-white' : 'border-green-200 '
   }`}>
-              <Heart className="mx-auto mb-4 w-8 h-8 text-red-500" />
+              <Heart className="mx-auto mb-4 w-14 h-14 text-red-500 bg-red-100 rounded-full  p-3 inline-flex" />
               <h3 className="font-medium mb-2">Passion</h3>
               <p>Fueled by our passion for education and belief in its power to transform lives.</p>
             </div>
-            <div className={`p-6 rounded-lg text-center border-4 ${
-    isDarkMode ? 'border-white' : 'border-green-400 '
+            <div className={`p-6 rounded-lg text-center border-2 ${
+    isDarkMode ? 'border-white' : 'border-green-200 '
   }`}>
-              <CheckCircle className="mx-auto mb-4 w-8 h-8 text-cyan-500" />
+              <CheckCircle className="mx-auto mb-4 w-14 h-14 text-cyan-500 bg-cyan-100 rounded-full  p-3 inline-flex" />
               <h3 className="font-medium mb-2">Quality</h3>
               <p>Ensuring every connection made through our platform meets the highest quality standards.</p>
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Our Story */}
-      <section className="py-16 px-4 max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-8">
+      <section className="py-16 px-4 max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8">
         <div className="lg:w-1/2">
-          {/* <h2 className="text-2xl font-semibold mb-4">Our Story</h2> */}
+          <h2 className="text-2xl font-bold mb-4">Our Story</h2>
           <h3 className="font-normal mb-2">With 20 years of international teaching experience, our founder brings a deep insight and passion to the world of educational recruitment. From classrooms in the UK to schools across Egypt, Kenya, India, and Nigeria, this journey has shaped a mission: to connect exceptional educators with the opportunities they deserve.</h3>
           <p className="mb-4">
             This platform was created to bridge the gap between talented teachers and the schools that need them, and between skilled tutors and families seeking quality education. Based in Lagos, Nigeria, we are especially committed to empowering African educators—helping them sharpen their skills, gain global exposure, and compete confidently for international roles.
@@ -92,9 +90,9 @@ export default function AboutUs({ isDarkMode,toggleDarkMode, isMobileMenuOpen, t
       </section>
 
       {/* Impact */}
-      {/* <section className="py-16 bg-white dark:bg-green-200">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-semibold mb-8">Our Impact</h2>
+      <section className="py-14 bg-white dark:bg-green-200">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-8">Our Impact</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             <div>
               <span className="text-3xl font-bold text-emerald-500">1,000+</span>
@@ -114,7 +112,7 @@ export default function AboutUs({ isDarkMode,toggleDarkMode, isMobileMenuOpen, t
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
       <Footer isDarkMode={isDarkMode} />
     </div>
     // </div>

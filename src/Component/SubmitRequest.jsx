@@ -90,14 +90,14 @@ export default function SubmitRequest() {
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-6">
+      <div className="bg-white px-8 py-6">
         <div className="flex items-center">
-          <User className="w-6 h-6 text-white mr-3" />
+          <User className="w-6 h-6 text-blck mr-3" />
           <div>
-            <h2 className="text-xl font-bold text-white">
+            <h2 className="text-xl font-bold text-black">
               Submit Your Tutoring Request
             </h2>
-            <p className="text-blue-100 mt-1">
+            <p className="text-black mt-1">
               Fill out the form below and we'll help you find the perfect teacher for your child.
             </p>
           </div>
