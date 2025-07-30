@@ -23,6 +23,7 @@ export default function JobPostCard({
   description
 }) {
   return (
+    
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-6 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
       
       {/* Header */}

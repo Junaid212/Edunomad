@@ -51,7 +51,7 @@ const SearchSection= () => {
             </div>
 
             {/* Search Button */}
-            <button className="bg-turquoise-400 bg-green-300 text-gray-500 px-8 py-3 rounded-lg font-semibold transition-colors">
+            <button className="bg-turquoise-400 bg-[#F2B189] text-white px-8 py-3 rounded-lg font-semibold transition-colors">
               Search
             </button>
           </div>

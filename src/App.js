@@ -228,7 +228,7 @@ function App() {
             toggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)}
             />}/>
         <Route
-          path="/sign"
+          path="/sign-in"
           element={
             <SignIn
               isDarkMode={isDarkMode} toggleDarkMode={() => setIsDarkMode((prev) => !prev)}

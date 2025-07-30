@@ -1,23 +1,26 @@
+// src/components/InstituteDashboard.jsx
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Building2,
   Plus,
   Users,
- Briefcase,
   Eye,
-  Calendar,
   MapPin,
   Mail,
   Phone,
   Globe,
-  ChevronRight,
-  UserCheck
+  ChevronRight
 } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 
-export default function InstituteDashboard({ isDarkMode,toggleDarkMode, isMobileMenuOpen, toggleMobileMenu }) {
+export default function InstituteDashboard({
+  isDarkMode,
+  toggleDarkMode,
+  isMobileMenuOpen,
+  toggleMobileMenu
+}) {
   const navigate = useNavigate();
   const [instituteData, setInstituteData] = useState(null);
 
@@ -32,10 +35,9 @@ export default function InstituteDashboard({ isDarkMode,toggleDarkMode, isMobile
 
   if (!instituteData) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        {/* <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div> */}
-        <p>no data</p>
-
+      <div className={`min-h-screen flex items-center justify-center
+        ${isDarkMode ? 'bg-gray-900 text-gray-200' : 'bg-gray-50 text-gray-700'}`}>
+        <p>No data found</p>
       </div>
     );
   }
@@ -44,83 +46,87 @@ export default function InstituteDashboard({ isDarkMode,toggleDarkMode, isMobile
   const handleApplicantCard = () => navigate('/applicant-page');
 
   return (
-    <div className={isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}>
-          <Header
-            isDarkMode={isDarkMode}
-            toggleDarkMode={toggleDarkMode}
-            isMobileMenuOpen={isMobileMenuOpen}
-            toggleMobileMenu={toggleMobileMenu}
-            onJoinNowClick={() => navigate('/register')}
-          />
-    
-      <div className="max-w-6xl mx-auto space-y-8 mb-10 ">
-        {/* Header */}
+    <div className={`${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'} min-h-screen flex flex-col`}>
+      <Header
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+        isMobileMenuOpen={isMobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+        onJoinNowClick={() => navigate('/register')}
+      />
+
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        {/* Page Header */}
         <div className="text-center">
-          <div className="flex items-center justify-center mb-4">
-            <Building2 className="h-10 w-10 text-[#00E5D5] mr-3" />
-            <h1 className="text-3xl font-bold bg-[#00E5D5] bg-clip-text text-transparent">
+          <div className="inline-flex items-center space-x-2 mb-2">
+            <Building2 className="w-8 h-8 text-[#00E5D5]" />
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00E5D5] to-[#FFAF85]">
               Institute Dashboard
             </h1>
           </div>
-          <p className="text-gray-600">
+          <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm sm:text-base`}>
             Welcome to your institute management portal
           </p>
         </div>
 
-        {/* Info Card */}
-        <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-          <div className="p-6 border-b">
-            <div className="flex items-center justify-between">
+        {/* Institute Info Card */}
+        <section
+          className={`rounded-lg overflow-hidden shadow-lg p-6
+            ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
+        >
+          <div className={`border-b pb-4 mb-6 ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
               <div>
-                <h2 className="text-2xl font-bold flex items-center">
-                  <Building2 className="h-6 w-6 text-blue-600 mr-2" />
+                <h2 className="flex items-center text-3xl font-semibold">
+                  <Building2 className="w-14 h-14 text-blue-600 mr-3" />
                   {instituteData.instituteName}
                 </h2>
-                <div className="mt-2 text-sm text-gray-700">
-                  <span className="inline-block bg-gray-200 px-2 py-1 rounded mr-2">
+                <div className={`${isDarkMode ? 'text-gray-400' : 'text-gray-700'} mt-1 text-sm space-x-2`}>
+                  <span
+                    className={`inline-block px-3 py-1 rounded-full font-medium
+                      ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}
+                  >
                     {instituteData.instituteType}
                   </span>
                   <span>Established {instituteData.establishedYear}</span>
                 </div>
               </div>
-              <span className="px-3 py-1 border border-green-500 text-green-600 rounded-full">
-                Active
-              </span>
             </div>
           </div>
-          <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="space-y-3">
-              <div className="flex items-center text-sm">
-                <Users className="h-4 w-4 text-blue-600 mr-2" />
-                <strong>Students:</strong>
-                <span className="ml-2">{instituteData.firstName}</span>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+            <div className={`${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
+              {/* <div className="flex items-center mb-3">
+                <Users className="w-5 h-5 text-blue-600 mr-2" />
+                <strong className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Students:</strong>
+                <span className="ml-1">{instituteData.studentCount || '—'}</span>
+              </div> */}
+              <div className="flex items-center mb-3">
+                <Mail className="w-5 h-5 text-blue-600 mr-2" />
+                <strong className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Email:</strong>
+                <span className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} ml-1`}>{instituteData.email}</span>
               </div>
-              <div className="flex items-center text-sm">
-                <Mail className="h-4 w-4 text-blue-600 mr-2" />
-                <strong>Email:</strong>
-                <span className="ml-2 text-gray-600">{instituteData.email}</span>
-              </div>
-              <div className="flex items-center text-sm">
-                <Phone className="h-4 w-4 text-blue-600 mr-2" />
-                <strong>Phone:</strong>
-                <span className="ml-2 text-gray-600">{instituteData.phone}</span>
+              <div className="flex items-center">
+                <Phone className="w-5 h-5 text-blue-600 mr-2" />
+                <strong className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Phone:</strong>
+                <span className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} ml-1`}>{instituteData.phone}</span>
               </div>
             </div>
 
-            <div className="space-y-3">
-              <div className="flex items-start text-sm">
-                <MapPin className="h-4 w-4 text-blue-600 mr-2 mt-1" />
+            <div className={`${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
+              <div className="flex items-start mb-3">
+                <MapPin className="w-5 h-5 text-blue-600 mr-2 mt-1" />
                 <div>
-                  <strong>Address:</strong>
-                  <p className="text-gray-600 mt-1">
-                    {instituteData.city}, {instituteData.state}
+                  <strong className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Location:</strong>
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mt-1`}>
+                    {instituteData.location || `${instituteData.city}, ${instituteData.state}`}
                   </p>
                 </div>
               </div>
               {instituteData.websiteUrl && (
-                <div className="flex items-center text-sm">
-                  <Globe className="h-4 w-4 text-[#00E5D5] mr-2" />
-                  <strong>Website:</strong>
+                <div className="flex items-center">
+                  <Globe className="w-5 h-5 text-[#00E5D5] mr-2" />
+                  <strong className={`${isDarkMode ? 'text-white' : 'text-black'}`}>Website:</strong>
                   <a
                     href={instituteData.websiteUrl}
                     target="_blank"
@@ -133,87 +139,82 @@ export default function InstituteDashboard({ isDarkMode,toggleDarkMode, isMobile
               )}
             </div>
 
-            <div className="space-y-3">
-              <div className="text-sm">
-                <strong>Contact Person:</strong>
-                <p className="text-gray-600 mt-1">
-                  {instituteData.contactPersonName}
-                </p>
-                <p className="text-xs text-gray-500">
-                  {instituteData.contactPersonDesignation}
-                </p>
-              </div>
+            <div className={`${isDarkMode ? 'text-gray-300' : 'text-gray-900'}`}>
+              <strong className={`${isDarkMode ? 'text-white' : 'text-black'}`}>About Institute:</strong>
+              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mt-1 whitespace-pre-line`}>
+                {instituteData.description || 'No description provided.'}
+              </p>
             </div>
           </div>
-          {instituteData.description && (
-            <div className="p-6 border-t">
-              <h3 className="font-semibold mb-2">About Institute</h3>
-              <p className="text-gray-600">{instituteData.description}</p>
-            </div>
-          )}
-        </div>
+        </section>
 
-        {/* Actions */}
+        {/* Action Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div
             onClick={handleAddJobVacancy}
-            className="bg-white shadow-lg rounded-lg p-6 cursor-pointer hover:shadow-xl transition"
+            className={`cursor-pointer rounded-lg shadow-lg p-6 transition hover:shadow-xl
+              ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
           >
             <div className="flex items-center mb-4">
-              <div className="p-3 bg-blue-100 rounded-lg mr-4">
-                <Plus className="h-6 w-6 text-[#00E5D5]" />
+              <div className={`p-3 rounded-lg mr-4 ${isDarkMode ? 'bg-blue-900' : 'bg-blue-100'}`}>
+                <Plus className="w-6 h-6 text-[#00E5D5]" />
               </div>
-              <h4 className="text-xl font-semibold">Add Job Vacancy</h4>
-              <ChevronRight className="ml-auto h-5 w-5 text-gray-400" />
+              <h4 className={`text-lg font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>Add Job Vacancy</h4>
+              <ChevronRight className={`ml-auto w-5 h-5 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`} />
             </div>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
               Post new job opportunities for students and alumni
             </p>
-            <button className="w-full rounded-lg bg-[#DAD024] text-white p-2">
-              
+            <button className="w-full py-2 rounded-lg bg-[#DAD024] text-white">
               Create Job Posting
             </button>
           </div>
 
           <div
             onClick={handleApplicantCard}
-            className="bg-white shadow-lg rounded-lg p-6 cursor-pointer hover:shadow-xl transition"
+            className={`cursor-pointer rounded-lg shadow-lg p-6 transition hover:shadow-xl
+              ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
           >
             <div className="flex items-center mb-4">
-              <div className="p-3 bg-indigo-100 rounded-lg mr-4">
-                <Eye className="h-6 w-6 text-[#00E5D5]" />
+              <div className={`p-3 rounded-lg mr-4 ${isDarkMode ? 'bg-indigo-900' : 'bg-indigo-100'}`}>
+                <Eye className="w-6 h-6 text-[#00E5D5]" />
               </div>
-              <h4 className="text-xl font-semibold">View Applications</h4>
-              <ChevronRight className="ml-auto h-5 w-5 text-gray-400" />
+              <h4 className={`text-lg font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>View Applications</h4>
+              <ChevronRight className={`ml-auto w-5 h-5 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`} />
             </div>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
               Review and manage job applications from candidates
             </p>
-            <button variant="outline" className="w-full border-[#00E5D5] text-[#00E5D5]">
-              
+            <button className="w-full py-2 rounded-lg border text-[#00E5D5] border-[#00E5D5]">
               View All Applications
             </button>
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+        {/* Statistics */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div
+            className={`rounded-lg shadow-lg p-6 text-center ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
+          >
             <div className="text-2xl font-bold text-blue-600">0</div>
-            <div className="text-sm text-gray-600">Active Job Postings</div>
+            <div className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Active Job Postings</div>
           </div>
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+          <div
+            className={`rounded-lg shadow-lg p-6 text-center ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
+          >
             <div className="text-2xl font-bold text-indigo-600">0</div>
-            <div className="text-sm text-gray-600">Total Applications</div>
+            <div className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Total Applications</div>
           </div>
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+          <div
+            className={`rounded-lg shadow-lg p-6 text-center ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
+          >
             <div className="text-2xl font-bold text-green-600">0</div>
-            <div className="text-sm text-gray-600">Successful Placements</div>
+            <div className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Successful Placements</div>
           </div>
         </div>
-      </div>
+      </main>
+
       <Footer isDarkMode={isDarkMode} />
     </div>
-    
   );
 }

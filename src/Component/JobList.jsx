@@ -1,12 +1,9 @@
 import React from 'react';
-import { GraduationCap } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import JobHeader from './JobHeader';
-import Stats from './Stats';
 import JobPostCard from './JobPostCard';
 import Header from './Header';
 import Footer from './Footer';
-import { useNavigate } from 'react-router-dom';
-
 
 const jobListings = [
   {
@@ -21,7 +18,8 @@ const jobListings = [
     qualification: 'M.Sc Mathematics, B.Ed preferred',
     experience: 'Minimum 2 years teaching secondary level',
     applyBefore: '15 August 2025',
-    description: 'Responsible for planning and delivering math lessons, assessing students, and participating in extracurricular activities.'
+    description:
+      'Responsible for planning and delivering math lessons, assessing students, and participating in extracurricular activities.'
   },
   {
     id: '2',
@@ -35,12 +33,13 @@ const jobListings = [
     qualification: 'M.Sc Physics, B.Ed required',
     experience: 'Minimum 3 years experience in CBSE curriculum',
     applyBefore: '10 August 2025',
-    description: 'Seeking an experienced Physics teacher to deliver engaging lessons for grades 9-12, conduct lab experiments, and mentor students.'
+    description:
+      'Seeking an experienced Physics teacher to deliver engaging lessons for grades 9-12, conduct lab experiments, and mentor students.'
   },
   {
     id: '3',
     title: 'English Literature Teacher',
-    school: 'St. Xavier\'s High School',
+    school: "St. Xavier's High School",
     location: 'Chennai, Tamil Nadu',
     type: 'Part-Time',
     postedDate: '15 July 2025',
@@ -49,52 +48,43 @@ const jobListings = [
     qualification: 'MA English Literature, B.Ed preferred',
     experience: 'Fresh graduates welcome, training provided',
     applyBefore: '5 August 2025',
-    description: 'Looking for a passionate English teacher to inspire students in literature appreciation and language skills development.'
+    description:
+      'Looking for a passionate English teacher to inspire students in literature appreciation and language skills development.'
   }
 ];
 
-function App({ isDarkMode,toggleDarkMode, isMobileMenuOpen, toggleMobileMenu }) {
-  const navigate = useNavigate()
+export default function App({ isDarkMode, toggleDarkMode, isMobileMenuOpen, toggleMobileMenu }) {
+  const navigate = useNavigate();
+
   return (
-   <div className={isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}>
-          <Header
-            isDarkMode={isDarkMode}
-            toggleDarkMode={toggleDarkMode}
-            isMobileMenuOpen={isMobileMenuOpen}
-            toggleMobileMenu={toggleMobileMenu}
-            onJoinNowClick={() => navigate('/register')}
-          />
+    <div className={isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}>
+      <Header
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+        isMobileMenuOpen={isMobileMenuOpen}
+        toggleMobileMenu={toggleMobileMenu}
+        onJoinNowClick={() => navigate('/register')}
+      />
+
       <JobHeader />
-      
-      
-      {/* Job Listings */}
-      <div className="container mx-auto  p-20 ">
-        {/* <div className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
-            Latest Job Openings
-          </h2>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto">
-            Explore our curated list of teaching positions from top schools across India
-          </p>
-        </div> */}
-        
-        <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3  gap-8  m-10 ">
+
+      {/* Job Listings Section */}
+      <main className="max-w-7xl mx-auto sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8">
           {jobListings.map((job) => (
             <JobPostCard key={job.id} {...job} />
           ))}
         </div>
 
         {/* Load More Button */}
-        <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-white border-2 border-[#DAD024] text-[#DAD024] font-semibold rounded-xl hover:bg-[#DAD024] hover:text-white transition-all duration-200 transform hover:scale-105">
+        <div className="mt-12 flex justify-center">
+          <button className="px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base bg-white border-2 border-[#DAD024] text-[#DAD024] font-medium rounded-lg hover:bg-[#DAD024] hover:text-white transition duration-200 ease-in-out transform hover:scale-105">
             Load More Jobs
           </button>
         </div>
-      </div>
+      </main>
 
       <Footer isDarkMode={isDarkMode} />
     </div>
   );
 }
-
-export default App;
